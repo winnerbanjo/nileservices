@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO tags populated dynamically -->
+  <title>Service Details | Nile Services Agency</title>
+  <meta name="description" content="Nile Services helps your business look professional, market properly, and grow online. View full details of this service here.">
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. Header & Navigation -->
+  <header class="header scrolled" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="4" fill="#09090B"/>
+          <path d="M8 8H13L24 24H19L8 8Z" fill="#059669"/>
+          <circle cx="21.5" cy="10.5" r="2.5" fill="#FFFFFF"/>
+        </svg>
+        <span class="logo-text">Nile<span>Services</span></span>
+      </a>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="index.html#portfolio" class="nav-item">Work</a>
+        <a href="index.html#categories" class="nav-item">Capabilities</a>
+        <a href="catalogue.html" class="nav-item">Services</a>
+        <a href="index.html#faq" class="nav-item">FAQ</a>
+        <a href="#request-section" class="btn btn-primary btn-sm">Start Project</a>
+      </nav>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. Breadcrumbs & Header -->
+  <section class="section section-subtle" style="padding-top: 150px; padding-bottom: 56px;">
+    <div class="stripe-bg-grid"></div>
+    <div class="container">
+      <ul class="breadcrumbs" style="display: flex; gap: 8px; font-size: 13px; color: var(--text-light); margin-bottom: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+        <li><a href="index.html" style="color: var(--primary-black);"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li>/</li>
+        <li><a href="catalogue.html" style="color: var(--primary-black);">Services</a></li>
+        <li>/</li>
+        <li id="breadcrumbActive" style="color: var(--accent-green);">Service Details</li>
+      </ul>
+      
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 32px;">
+        <div>
+          <span class="service-cat" id="serviceCategory" style="background-color: var(--white); display: inline-block; margin-bottom: 16px;">Category</span>
+          <h1 id="serviceTitle" style="font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--primary-black); text-transform: uppercase;">Service Name</h1>
+        </div>
+        <div style="background-color: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 24px 32px; box-shadow: var(--shadow-sm); display: flex; gap: 40px;">
+          <div>
+            <span class="price-label">Starting Price</span>
+            <span id="servicePrice" style="font-size: 32px; font-weight: 900; color: var(--primary-black); letter-spacing: -0.02em;">₦0</span>
+          </div>
+          <div style="border-left: 1px solid var(--border-color); padding-left: 40px;">
+            <span class="price-label">Timeline</span>
+            <span id="serviceTimeline" style="font-size: 16px; font-weight: 800; color: var(--accent-green-dark); display: block; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.05em;">Timeline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Split Detail Grid -->
+  <section class="section" style="padding-top: 80px; padding-bottom: 96px;">
+    <div class="container">
+      <div id="detailGrid">
+        
+        <!-- Left Column -->
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+          <div>
+            <h2 style="font-size: 22px; margin-bottom: 20px; color: var(--primary-black); text-transform: uppercase;">Service Scope & Overview</h2>
+            <p id="serviceDescription" style="font-size: 16px; color: var(--text-main); line-height: 1.8;">Full details of the service description go here...</p>
+          </div>
+          
+          <div id="serviceNoteBox" class="notes-container" style="display: none; padding: 28px; margin-bottom: 0;">
+            <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--primary-black); text-transform: uppercase; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-exclamation" style="color: var(--accent-green);"></i> Note</h3>
+            <p id="serviceNoteText" style="font-size: 14px; line-height: 1.6; color: var(--text-main);"></p>
+          </div>
+          
+          <div style="display: flex; gap: 16px; align-items: center; border-top: 1px solid var(--border-color); padding-top: 40px;">
+            <a href="" target="_blank" class="btn btn-whatsapp" id="serviceWhatsAppBtn" style="flex-grow: 1;">
+              <i class="fa-brands fa-whatsapp"></i> Project Inquiry on WhatsApp
+            </a>
+            <a href="#request-section" class="btn btn-secondary" style="flex-grow: 1;">Fill Creative Brief</a>
+          </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <!-- What's Included -->
+          <div style="background-color: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 40px 32px;">
+            <h3 style="font-size: 16px; margin-bottom: 24px; color: var(--primary-black); display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.02em;">
+              <i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> What is Included
+            </h3>
+            <div id="serviceIncludesList" style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+          
+          <!-- Best For -->
+          <div style="background-color: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 40px 32px;">
+            <h3 style="font-size: 16px; margin-bottom: 24px; color: var(--primary-black); display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.02em;">
+              <i class="fa-solid fa-circle-user" style="color: var(--accent-green-dark);"></i> Best For
+            </h3>
+            <div id="serviceBestList" style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Related Services Section -->
+  <section class="section section-subtle" style="padding-top: 96px; padding-bottom: 96px;">
+    <div class="container">
+      <div class="section-header text-center" style="margin-left: auto; margin-right: auto; margin-bottom: 56px;">
+        <span class="badge">Explore More</span>
+        <h2 class="section-title">Related Services</h2>
+        <p class="section-subtitle">Other design, marketing, and software engineering capabilities in this category.</p>
+      </div>
+      
+      <div class="catalogue-grid" id="relatedGrid">
+        <!-- Rendered dynamically via service-detail.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Standalone Form Section -->
+  <section class="section" id="request-section" style="padding-top: 96px; padding-bottom: 96px;">
+    <div class="container">
+      <div class="form-card">
+        <div class="text-center" style="margin-bottom: 40px;">
+          <span class="badge">Briefing Form</span>
+          <h2 style="font-size: 28px; margin-bottom: 12px; text-transform: uppercase;">Submit Project Brief</h2>
+          <p style="color: var(--text-light);">Provide your project specifications, preferences, and design guidelines. Our strategists will review and reach out.</p>
+        </div>
+        
+        <form id="requestForm" class="request-form">
+          <div class="form-grid">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" class="form-input" placeholder="e.g. Joy Okafor" required>
+            </div>
+            
+            <!-- Business Name -->
+            <div class="form-group">
+              <label for="businessName" class="form-label">Business Name *</label>
+              <input type="text" id="businessName" name="businessName" class="form-input" placeholder="e.g. Lumina Apparel" required>
+            </div>
+            
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. +234 80 1234 5678" required>
+            </div>
+            
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="e.g. contact@lumina.com" required>
+            </div>
+            
+            <!-- WhatsApp Number -->
+            <div class="form-group">
+              <label for="whatsapp" class="form-label">WhatsApp Number *</label>
+              <input type="tel" id="whatsapp" name="whatsapp" class="form-input" placeholder="e.g. +234 80 1234 5678" required>
+            </div>
+            
+            <!-- Service Needed Dropdown (pre-selected by script) -->
+            <div class="form-group">
+              <label for="serviceNeeded" class="form-label">Service Needed *</label>
+              <select id="serviceNeeded" name="serviceNeeded" class="form-select" required>
+                <option value="" disabled selected>Select a Service...</option>
+                <option value="Logo Design">Logo Design</option>
+                <option value="Logo Redesign">Logo Redesign</option>
+                <option value="Brand Identity">Brand Identity</option>
+                <option value="Flyer Design">Flyer Design</option>
+                <option value="Social Media Content">Social Media Content</option>
+                <option value="Ads Setup">Ads Setup</option>
+                <option value="Ads Management">Ads Management</option>
+                <option value="Website Setup">Website Setup Support</option>
+                <option value="Custom Website">Custom Website Development</option>
+                <option value="Mobile App / Web App">Mobile App / Web App Development</option>
+                <option value="Product Photography Direction">Product Photography Direction</option>
+                <option value="Packaging / Label Design">Packaging / Label Design</option>
+                <option value="Business Consultation">Business Consultation</option>
+                <option value="Pitch Deck / Proposal">Pitch Deck / Proposal Design</option>
+                <option value="Other">Other Services</option>
+              </select>
+            </div>
+            
+            <!-- Business Industry -->
+            <div class="form-group">
+              <label for="industry" class="form-label">Business Industry</label>
+              <input type="text" id="industry" name="industry" class="form-input" placeholder="e.g. Skincare, Restaurant, NGO">
+            </div>
+            
+            <!-- Budget Range Dropdown -->
+            <div class="form-group">
+              <label for="budgetRange" class="form-label">Estimated Budget Range *</label>
+              <select id="budgetRange" name="budgetRange" class="form-select" required>
+                <option value="" disabled selected>Select budget...</option>
+                <option value="Below ₦50,000">Below ₦50,000</option>
+                <option value="₦50,000 to ₦100,000">₦50,000 to ₦100,000</option>
+                <option value="₦100,000 to ₦250,000">₦100,000 to ₦250,000</option>
+                <option value="₦250,000 to ₦500,000">₦250,000 to ₦500,000</option>
+                <option value="₦500,000 to ₦1,000,000">₦500,000 to ₦1,000,000</option>
+                <option value="Above ₦1,000,000">Above ₦1,000,000</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+            
+            <!-- Preferred Timeline -->
+            <div class="form-group">
+              <label for="timeline" class="form-label">Preferred Timeline</label>
+              <input type="text" id="timeline" name="timeline" class="form-input" placeholder="e.g. Urgent, 2 weeks, 1 month">
+            </div>
+            
+            <!-- Existing Website Toggle -->
+            <div class="form-group">
+              <label for="hasWebsite" class="form-label">Do you already have a website? *</label>
+              <select id="hasWebsite" name="hasWebsite" class="form-select" required>
+                <option value="" disabled selected>Select...</option>
+                <option value="Yes, Nile Website">Yes, Nile Website</option>
+                <option value="Yes, Custom / Other Website">Yes, Custom / Other Website</option>
+                <option value="No website yet">No website yet</option>
+              </select>
+            </div>
+            
+            <!-- Website Link -->
+            <div class="form-group">
+              <label for="websiteLink" class="form-label">Website Link (if applicable)</label>
+              <input type="url" id="websiteLink" name="websiteLink" class="form-input" placeholder="e.g. https://mystore.nile.shop">
+            </div>
+            
+            <!-- Instagram handle -->
+            <div class="form-group">
+              <label for="instagram" class="form-label">Instagram Handle</label>
+              <input type="text" id="instagram" name="instagram" class="form-input" placeholder="e.g. @lumina_apparel">
+            </div>
+            
+            <!-- TikTok handle -->
+            <div class="form-group">
+              <label for="tiktok" class="form-label">TikTok Handle</label>
+              <input type="text" id="tiktok" name="tiktok" class="form-input" placeholder="e.g. @lumina_apparel">
+            </div>
+            
+            <!-- Reference Links -->
+            <div class="form-group">
+              <label for="reference" class="form-label">Reference Links / Competitors</label>
+              <input type="text" id="reference" name="reference" class="form-input" placeholder="Links to designs/websites you love">
+            </div>
+            
+            <!-- Preferred Style -->
+            <div class="form-group">
+              <label for="stylePref" class="form-label">Preferred Style / Vibe</label>
+              <input type="text" id="stylePref" name="stylePref" class="form-input" placeholder="e.g. Modern, luxury, colorful, minimalist">
+            </div>
+            
+            <!-- Preferred Colors -->
+            <div class="form-group">
+              <label for="colorPref" class="form-label">Preferred Colors</label>
+              <input type="text" id="colorPref" name="colorPref" class="form-input" placeholder="e.g. Pastel pinks, deep greens, charcoal black">
+            </div>
+            
+            <!-- Upload reference files -->
+            <div class="form-group form-group-full">
+              <label class="form-label">Upload Reference Files (Optional)</label>
+              <div class="file-upload-wrapper" id="fileUploadContainer">
+                <input type="file" id="referenceFiles" name="referenceFiles" class="file-upload-input">
+                <i class="fa-regular fa-file-image file-upload-icon"></i>
+                <div class="file-upload-text">Click or drag files here to upload logo references or style templates</div>
+                <div class="file-upload-name" id="fileNameDisplay"></div>
+              </div>
+            </div>
+            
+            <!-- Dynamic Service-Specific Questionnaire Brief -->
+            <div id="dynamicBriefContainer" class="form-group-full" style="display: none; border-top: 1px dashed var(--border-color); border-bottom: 1px dashed var(--border-color); padding: 28px 0; margin: 8px 0 20px 0; display: flex; flex-direction: column; gap: 24px;"></div>
+            
+            <!-- Project description -->
+            <div class="form-group form-group-full">
+              <label for="description" class="form-label">Project Description *</label>
+              <textarea id="description" name="description" class="form-textarea" placeholder="Describe what you want to achieve, key deliverables needed, and any extra information." required></textarea>
+            </div>
+            
+            <!-- Additional Notes -->
+            <div class="form-group form-group-full">
+              <label for="notes" class="form-label">Additional Notes</label>
+              <textarea id="notes" name="notes" class="form-textarea" placeholder="Any extra instructions, availability for calls, or special timeline requests."></textarea>
+            </div>
+          </div>
+          
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <i class="fa-regular fa-paper-plane"></i> Submit Project Brief
+            </button>
+            <div class="form-whatsapp-text">
+              Need faster response? <a href="" target="_blank" id="formWhatsAppRedirect"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>Nile<span>Services</span></h3>
+          <p class="footer-about-text">
+            Nile Services helps businesses build better brands, better content, better websites, better ads, and better digital systems.
+          </p>
+          <div class="footer-contact-info" style="gap: 8px;">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:business@nile.ng" style="color: inherit; text-decoration: none;">business@nile.ng</a>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+234 800 000 0000</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4>Capabilities</h4>
+          <ul class="footer-links-list">
+            <li><a href="catalogue.html?filter=branding" class="footer-link">Branding & Logos</a></li>
+            <li><a href="catalogue.html?filter=graphic-design" class="footer-link">Graphic Design</a></li>
+            <li><a href="catalogue.html?filter=social-media" class="footer-link">Social Media</a></li>
+            <li><a href="catalogue.html?filter=ads-campaigns" class="footer-link">Ads & Campaigns</a></li>
+            <li><a href="catalogue.html?filter=websites" class="footer-link">Custom Websites</a></li>
+            <li><a href="catalogue.html?filter=apps" class="footer-link">Apps & Software</a></li>
+            <li><a href="admin.html" class="footer-link" style="color: var(--accent-green);"><i class="fa-solid fa-lock"></i> Nile Admin</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4>Lagos, Nigeria</h4>
+          <div class="footer-contact-info" style="gap: 6px; font-size: 13.5px; line-height: 1.6;">
+            <strong style="color: var(--white); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Nile Africa Technologies Limited</strong>
+            Office 10, Ipaja Modern Market<br>
+            Lagos, Nigeria
+          </div>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4>Sheridan, USA</h4>
+          <div class="footer-contact-info" style="gap: 6px; font-size: 13.5px; line-height: 1.6;">
+            <strong style="color: var(--white); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">NILE TECHNOLOGIES INC</strong>
+            30 N Gould St Ste R<br>
+            Sheridan, WY 82801, USA
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nile Africa. All rights reserved.</p>
+        <p>Built with <i class="fa-solid fa-heart" style="color: var(--accent-green);"></i> for Small Business Growth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Success Notification Toast -->
+  <div class="success-toast" id="successToast">
+    <i class="fa-solid fa-circle-check"></i>
+    <div class="success-toast-content">
+      <h5>Request Submitted!</h5>
+      <p>Redirecting to WhatsApp to send project specs...</p>
+    </div>
+  </div>
+
+  <!-- Script Declarations -->
+  <script src="js/services-data.js"></script>
+  <script src="js/service-detail.js"></script>
+</body>
+</html>

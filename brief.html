@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Brief Onboarding | Nile Services</title>
+  
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="brief-body-theme">
+
+  <div class="stripe-bg-grid"></div>
+
+  <!-- Onboarding Top Header -->
+  <header class="brief-header">
+    <div class="brief-header-container">
+      <a href="index.html" class="brief-logo">
+        Nile<span>Services</span>
+      </a>
+      <a href="catalogue.html" class="brief-close-btn" aria-label="Exit onboarding">
+        <i class="fa-solid fa-xmark"></i> Exit
+      </a>
+    </div>
+    <!-- Progress Indicator -->
+    <div class="onboarding-progress-container">
+      <div class="onboarding-progress-bar" id="progressBar" style="width: 0%;"></div>
+    </div>
+  </header>
+
+  <!-- Interactive Slide Container -->
+  <main class="brief-main-container">
+    <div class="brief-card-frame" id="briefCardFrame">
+      
+      <!-- Slide 0: Selection Track (Dynamic Default) -->
+      <div class="brief-slide active" id="slide-select-track">
+        <span class="brief-badge">Onboarding Start</span>
+        <h2 class="brief-heading">What are we building today?</h2>
+        <p class="brief-subheading">Choose a service track to start your interactive project brief.</p>
+        
+        <div class="track-select-grid">
+          <button class="track-select-btn" onclick="startTrack('logo')">
+            <span class="track-icon"><i class="fa-solid fa-palette"></i></span>
+            <div class="track-content">
+              <h3>Logo & Branding</h3>
+              <p>Visual identity, styles, colors & references.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right track-arrow"></i>
+          </button>
+          
+          <button class="track-select-btn" onclick="startTrack('social')">
+            <span class="track-icon"><i class="fa-solid fa-hashtag"></i></span>
+            <div class="track-content">
+              <h3>Social Media Content</h3>
+              <p>Post setups, calendar goals & styles.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right track-arrow"></i>
+          </button>
+          
+          <button class="track-select-btn" onclick="startTrack('ads')">
+            <span class="track-icon"><i class="fa-solid fa-bullhorn"></i></span>
+            <div class="track-content">
+              <h3>Paid Ads & Campaigns</h3>
+              <p>Targets, ad spends & design asset links.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right track-arrow"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic slides will be injected here by brief.js -->
+
+    </div>
+  </main>
+
+  <!-- Onboarding Bottom Nav -->
+  <footer class="brief-footer" id="briefFooter" style="display: none;">
+    <div class="brief-footer-container">
+      <button class="btn btn-secondary btn-sm" id="btnBack" onclick="prevSlide()">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+      <span class="slide-indicator-text" id="slideIndicator">Question 1 of 5</span>
+      <button class="btn btn-primary btn-sm" id="btnNext" onclick="nextSlide()">
+        Next <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Page Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/brief.js"></script>
+</body>
+</html>
