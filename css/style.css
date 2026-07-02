@@ -2234,3 +2234,23 @@ ul {
   letter-spacing: 0.05em;
   color: var(--text-light);
 }
+
+/* File Upload Component Styles */
+.file-upload-zone {
+  position: relative;
+  overflow: hidden;
+}
+.file-upload-zone:hover {
+  border-color: var(--accent-green) !important;
+  background-color: rgba(37, 211, 102, 0.02) !important;
+}
+.file-hidden-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
