@@ -173,7 +173,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Start listening
-app.listen(PORT, () => {
-  console.log(`🚀 Nile Services Node Server active on http://localhost:${PORT}`);
-});
+// Export app for serverless deployment (Vercel)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Nile Services Node Server active on http://localhost:${PORT}`);
+  });
+}
+module.exports = app;
