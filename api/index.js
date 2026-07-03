@@ -61,6 +61,10 @@ async function connectDatabase() {
 // --- 1. File Upload to Cloudinary Endpoint ---
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   try {
+    if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+      return res.status(500).json({ error: 'Cloudinary credentials are not configured in Vercel environment variables' });
+    }
+
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
@@ -96,7 +100,7 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
     });
   } catch (err) {
     console.error("🔴 Cloudinary Stream Upload Error:", err);
-    return res.status(500).json({ error: 'Failed to upload file to Cloudinary' });
+    return res.status(500).json({ error: 'Failed to upload file to Cloudinary: ' + (err.message || err) });
   }
 });
 
