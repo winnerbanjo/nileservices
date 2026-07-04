@@ -58,6 +58,16 @@ async function connectDatabase() {
   return briefsCollection;
 }
 
+// Verification helper middleware to validate admin passcode
+function verifyAdminPasscode(req, res, next) {
+  const clientPasscode = req.headers['x-admin-passcode'];
+  const expectedPasscode = process.env.ADMIN_PASSCODE || 'NileAgencyHub2026!';
+  if (clientPasscode !== expectedPasscode) {
+    return res.status(401).json({ error: 'Unauthorized: Invalid passcode' });
+  }
+  next();
+}
+
 // --- 1. File Upload to Cloudinary Endpoint ---
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   try {
@@ -128,7 +138,7 @@ app.post('/api/briefs', async (req, res) => {
 });
 
 // --- 3. Fetch All Briefs Endpoint ---
-app.get('/api/briefs', async (req, res) => {
+app.get('/api/briefs', verifyAdminPasscode, async (req, res) => {
   try {
     const collection = await connectDatabase();
 
@@ -142,7 +152,7 @@ app.get('/api/briefs', async (req, res) => {
 });
 
 // --- 4. Delete Brief Endpoint ---
-app.delete('/api/briefs/:id', async (req, res) => {
+app.delete('/api/briefs/:id', verifyAdminPasscode, async (req, res) => {
   try {
     const collection = await connectDatabase();
 

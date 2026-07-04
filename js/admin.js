@@ -7,13 +7,45 @@ const WHATSAPP_NUMBER = "2348123456789";
 let briefs = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadBriefs();
+  const passcode = sessionStorage.getItem("nile_admin_passcode");
+  if (!passcode) {
+    showLoginScreen();
+  } else {
+    loadBriefs();
+  }
 });
+
+function showLoginScreen() {
+  document.getElementById("loginGate").style.display = "flex";
+  document.getElementById("adminDashboardContent").style.display = "none";
+}
+
+function showDashboard() {
+  document.getElementById("loginGate").style.display = "none";
+  document.getElementById("adminDashboardContent").style.display = "block";
+}
+
+// Handle Admin Authenticate Action
+async function handleLoginSubmit(event) {
+  event.preventDefault();
+  const input = document.getElementById("adminPasscodeInput");
+  const errorMsg = document.getElementById("loginErrorMsg");
+  const passcode = input.value.trim();
+  
+  if (!passcode) return;
+
+  errorMsg.style.display = "none";
+  sessionStorage.setItem("nile_admin_passcode", passcode);
+  
+  await loadBriefs();
+}
 
 // Load briefs from Node.js MongoDB Atlas REST API
 async function loadBriefs() {
   const tbody = document.getElementById("briefsTableBody");
   const emptyState = document.getElementById("tableEmptyState");
+  const errorMsg = document.getElementById("loginErrorMsg");
+  
   tbody.innerHTML = `
     <tr>
       <td colspan="6" style="text-align: center; padding: 60px 20px; color: #71717A;">
@@ -23,11 +55,26 @@ async function loadBriefs() {
     </tr>
   `;
 
+  const passcode = sessionStorage.getItem("nile_admin_passcode") || "";
+
   try {
-    const response = await fetch("/api/briefs");
+    const response = await fetch("/api/briefs", {
+      headers: {
+        "x-admin-passcode": passcode
+      }
+    });
+
+    if (response.status === 401) {
+      sessionStorage.removeItem("nile_admin_passcode");
+      errorMsg.style.display = "block";
+      showLoginScreen();
+      return;
+    }
+
     if (!response.ok) throw new Error("Failed to fetch data from database");
     
     briefs = await response.json();
+    showDashboard();
     updateStats();
     renderTable(briefs);
   } catch (err) {
@@ -259,11 +306,22 @@ function closeModal() {
 // Delete brief record from MongoDB Atlas database API
 async function deleteBrief(id) {
   if (confirm("Are you sure you want to delete this brief? This action will permanently remove it from MongoDB Atlas.")) {
+    const passcode = sessionStorage.getItem("nile_admin_passcode") || "";
     try {
       const response = await fetch(`/api/briefs/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+          "x-admin-passcode": passcode
+        }
       });
       
+      if (response.status === 401) {
+        alert("Session expired or unauthorized. Please re-authenticate.");
+        sessionStorage.removeItem("nile_admin_passcode");
+        showLoginScreen();
+        return;
+      }
+
       if (response.ok) {
         loadBriefs(); // Refresh briefs list
       } else {
