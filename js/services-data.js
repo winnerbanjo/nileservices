@@ -452,6 +452,30 @@ const servicesData = [
     ctaText: "Request Website Setup"
   },
   {
+    id: "product-uploading",
+    name: "E-commerce Product Uploading",
+    category: "websites",
+    categoryLabel: "Websites and Landing Pages",
+    price: "₦20,000",
+    timeline: "2 to 4 working days",
+    description: "Get your e-commerce store products professionally uploaded and formatted. We set up product titles, high-quality images, descriptions, prices, variants, and categories.",
+    bestFor: [
+      "Nile store merchants launching a new collection",
+      "E-commerce brands with bulk product lists",
+      "Busy store owners who want to save time",
+      "Merchants transitioning from Instagram to Nile stores"
+    ],
+    includes: [
+      "Bulk upload of product details (titles, descriptions, SKUs)",
+      "Image resizing & formatting for clean storefront alignment",
+      "Variant setup (size, color, price differentials)",
+      "Collection & category arrangement",
+      "SEO-friendly product page slugs & metadata setup",
+      "Pricing batches: 1-50 products (₦20k), 51-150 products (₦50k), 151-300 products (₦90k)"
+    ],
+    ctaText: "Request Product Uploading"
+  },
+  {
     id: "website-audit",
     name: "Website Audit",
     category: "websites",

@@ -225,6 +225,64 @@ const tracks = {
       required: true
     }
   ],
+  product_upload: [
+    {
+      id: "clientName",
+      badge: "About You",
+      question: "What is your name? 👋",
+      subheading: "Let's start with who we are building for.",
+      type: "text",
+      placeholder: "e.g. Winner Oyekunle",
+      required: true
+    },
+    {
+      id: "businessName",
+      badge: "Store Details",
+      question: "What is your business or store name? 💼",
+      subheading: "The name of your e-commerce store.",
+      type: "text",
+      placeholder: "e.g. Nile Shop",
+      required: true
+    },
+    {
+      id: "storeLogins",
+      badge: "Access Details",
+      question: "What are your store login credentials? 🔑",
+      subheading: "Provide the store URL, admin email/username, and password so we can access your dashboard.",
+      type: "textarea",
+      placeholder: "Store URL: nileshop.nile.ng\nUsername: admin@nile.ng\nPassword: *********",
+      required: true
+    },
+    {
+      id: "productCount",
+      badge: "Product Count",
+      question: "How many products do you want to upload? 📦",
+      subheading: "Select the batch size for your product inventory. Fee will calculate automatically.",
+      type: "select",
+      options: [
+        "1 - 50 Products (Fee: ₦20,000)",
+        "51 - 150 Products (Fee: ₦50,000)",
+        "151 - 300 Products (Fee: ₦90,000)",
+        "Above 300 Products (Custom Quote)"
+      ],
+      required: true
+    },
+    {
+      id: "referenceFile",
+      badge: "Product Data",
+      question: "Upload your product catalog or details sheet 📁",
+      subheading: "Upload your Excel spreadsheet, Word document, images zip, or PDF catalog (Max 15MB).",
+      type: "file"
+    },
+    {
+      id: "contact",
+      badge: "Contact Info",
+      question: "How can we reach you? 📱",
+      subheading: "Double-check your email and phone number for delivery updates.",
+      type: "contact-group",
+      required: true
+    }
+  ],
   websites: [
     {
       id: "clientName",
@@ -374,6 +432,8 @@ document.addEventListener("DOMContentLoaded", () => {
       startTrack("websites");
     } else if (["apps", "mobile-app", "admin-dashboards", "api-systems", "apps-software"].includes(sId)) {
       startTrack("apps");
+    } else if (["product-uploading", "product_upload", "product-upload"].includes(sId)) {
+      startTrack("product_upload");
     }
   }
 });
@@ -674,9 +734,21 @@ async function submitBrief() {
   else if (currentTrackKey === "ads") serviceName = "Paid Ads Campaign";
   else if (currentTrackKey === "websites") serviceName = "Custom Website Development";
   else if (currentTrackKey === "apps") serviceName = "Mobile & Custom Software Systems";
+  else if (currentTrackKey === "product_upload") serviceName = "E-commerce Product Uploading";
+  
+  // Calculate pricing fee tier for product upload track
+  let calculatedFeeStr = "";
+  if (currentTrackKey === "product_upload") {
+    let feeVal = "₦20,000";
+    const selectVal = responses.productCount || "";
+    if (selectVal.includes("51 - 150")) feeVal = "₦50,000";
+    else if (selectVal.includes("151 - 300")) feeVal = "₦90,000";
+    else if (selectVal.includes("Above 300")) feeVal = "Custom Quote";
+    calculatedFeeStr = `\n*Expected Fee:* ${feeVal}\n`;
+  }
   
   // Create WhatsApp message string template
-  let waMsg = `Hello Nile Services,\nI just completed the onboarding brief for "${serviceName}".\n\n`;
+  let waMsg = `Hello Nile Services,\nI just completed the onboarding brief for "${serviceName}".\n${calculatedFeeStr}\n`;
   waMsg += `*1. Client Details:*\n`;
   waMsg += `- Name: ${responses.clientName}\n`;
   if (responses.businessName) waMsg += `- Business: ${responses.businessName}\n`;

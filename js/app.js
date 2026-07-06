@@ -340,6 +340,26 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     } 
+    // E-commerce Product Uploading briefs
+    else if (["E-commerce Product Uploading"].includes(selectedService)) {
+      dynamicBriefContainer.style.display = "flex";
+      html = `
+        <div class="form-group">
+          <label class="form-label" for="storeLoginsBrief">Store Logins (URL, Username, Password) *</label>
+          <textarea id="storeLoginsBrief" class="form-input" placeholder="Store URL: nileshop.nile.ng&#10;Username: admin@nile.ng&#10;Password: *********" style="min-height: 80px;" required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="productCountBrief">Number of Products to Upload *</label>
+          <select id="productCountBrief" class="form-select" required>
+            <option value="" disabled selected>Select products batch...</option>
+            <option value="1 - 50 Products (Fee: ₦20,000)">1 - 50 Products (Fee: ₦20,000)</option>
+            <option value="51 - 150 Products (Fee: ₦50,000)">51 - 150 Products (Fee: ₦50,000)</option>
+            <option value="151 - 300 Products (Fee: ₦90,000)">151 - 300 Products (Fee: ₦90,000)</option>
+            <option value="Above 300 Products (Custom Quote)">Above 300 Products (Custom Quote)</option>
+          </select>
+        </div>
+      `;
+    }
     // Social Media content briefs
     else if (["Social Media Content"].includes(selectedService)) {
       dynamicBriefContainer.style.display = "flex";

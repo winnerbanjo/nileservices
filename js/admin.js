@@ -94,12 +94,13 @@ function updateStats() {
   const adsCount = briefs.filter(b => b.track === "ads").length;
   const webCount = briefs.filter(b => b.track === "websites").length;
   const appCount = briefs.filter(b => b.track === "apps").length;
+  const productUploadCount = briefs.filter(b => b.track === "product_upload").length;
   
   document.getElementById("statTotal").textContent = total;
   
-  // Update category counts (Websites & Apps stack into Campaign Ads and Social sections dynamically if stat boxes are limited)
+  // Update category counts (Websites & Apps & Uploads stack into Campaign Ads and Social sections dynamically)
   document.getElementById("statLogo").textContent = logoCount;
-  document.getElementById("statSocial").textContent = socialCount + webCount;
+  document.getElementById("statSocial").textContent = socialCount + webCount + productUploadCount;
   document.getElementById("statAds").textContent = adsCount + appCount;
 }
 
@@ -139,6 +140,9 @@ function renderTable(list) {
     } else if (item.track === "apps") {
       badgeStyle = "background-color: rgba(245, 158, 11, 0.15); color: #FBBF24;";
       trackLabel = "Software / Apps";
+    } else if (item.track === "product_upload") {
+      badgeStyle = "background-color: rgba(14, 165, 233, 0.15); color: #38BDF8;";
+      trackLabel = "Product Uploading";
     }
     
     // Get unique identifier (either Hex MongoDB _id or string local id)
@@ -276,6 +280,8 @@ function viewBrief(id) {
     else if (key === "appPlatforms") questionLabel = "Target Build Platforms";
     else if (key === "appDescription") questionLabel = "Product Functional Scope";
     else if (key === "appIntegrations") questionLabel = "Required Integration APIs";
+    else if (key === "storeLogins") questionLabel = "Store Login Credentials";
+    else if (key === "productCount") questionLabel = "Products Upload Count (Fee)";
     
     html += `
       <div style="border-left: 2px solid #3F3F46; padding-left: 16px;">
